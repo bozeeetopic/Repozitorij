@@ -1,0 +1,40 @@
+<div class="form-row" id= "searchbar">
+    <div class="form-group col-md-1"></div>
+    <!--Search bar-->
+    <button class="form-group col-md-2 btn btn-info" 
+    (click)="Search(plantname.value,mintemp.value,maxtemp.value,minwater.value,maxwater.value);">
+    <i class="fas fa-search"></i>
+        Search 
+    </button>
+    <input class="form-group col-md-2" type="text" name= "PlantName" #plantname placeholder="name" >
+    <input class="form-group col-md-1" type="number" name= "Mintemp" #mintemp placeholder="mint" >
+    <input class="form-group col-md-1" type="number" name= "Maxtemp" #maxtemp placeholder="maxt" >
+    <input class="form-group col-md-1" type="number" name= "Minwater" #minwater placeholder="minw" >
+    <input class="form-group col-md-1" type="number" name= "Maxwater" #maxwater placeholder="maxw" >
+</div>
+<table class="table table-hover">
+    <tr>
+         <!--botuni za sortiranje-->
+        <td (click)="service.SortListName()">Plant Name</td>
+        <td (click)="service.SortListTempMin()">Min temp</td>
+        <td (click)="service.SortListTempMax()">Max temp</td>
+        <td (click)="service.SortListWaterMin()">Min water</td>
+        <td (click)="service.SortListWaterMax()">Max water</td>
+        <td>   </td>
+        <td>   </td>
+    </tr>
+</table>
+<div id="table">
+<table class="table table-hover">
+     <!--lista-->
+    <tr *ngFor= "let pd of service.searchlist">
+        <td style="display:none;" (click)="populateForm(pd)">{{pd.PMid}}</td>
+        <td (click)="populateForm(pd)">{{pd.PlantName}}</td>
+        <td (click)="populateForm(pd)">{{pd.Mintemp}} °C</td>
+        <td (click)="populateForm(pd)">{{pd.Maxtemp}} °C</td>
+        <td (click)="populateForm(pd)">{{pd.Minwater}} L/week</td>
+        <td (click)="populateForm(pd)">{{pd.Maxwater}} L/week</td>
+        <i class="fas fa-dumpster-fire fa-lg text-danger" (click)= "onDelete(pd)"></i>
+    </tr>
+</table>
+</div>

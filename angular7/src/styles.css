@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+input.ng-touched.ng-invalid{
+    border-color: rgb(231, 84, 84);
+}
+input.ng-valid{
+    border-color: rgb(104, 207, 73)
+}
+.green-icon {
+    color:rgb(104, 207, 73)
+}
+.red-icon {
+    color:rgb(231, 84, 84);
+}
+#toast-container > div {
+    opacity:1;
+}
+
+table td:hover{
+    cursor:pointer;
+}
+
+table i{
+    vertical-align: middle;
+    padding-top: 15px;
+}
+
+table i:hover{
+    cursor: crosshair;
+}
+body{
+    background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/10ECF/production/_107772396_treesmall.jpg);
+    background-size: cover;
+}
+
+.jumbtron{
+    background-color: rgba(255, 255, 255, 0.534);
+    padding: 1%;
+    margin-top: 10px;
+    max-height:600px;
+    overflow: hidden;
+}
+
+#searchbar {
+    padding-top:1px;
+    padding-bottom:1px;
+    padding-left: 40px;
+}
+
+#searchbar input{
+    margin-left: 3px;
+}
+
+#table {
+    max-height:50%;
+    overflow-y: scroll;
+  }
+  

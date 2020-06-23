@@ -1,0 +1,91 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="PMid" [value] = "service.formData.PMid">
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class = "input-group-text bg-white">
+                    <i class="fas fa-tree" [class.green-icon]="PlantName.valid" 
+                    [class.red-icon]="PlantName.invalid && PlantName.touched"></i>
+                </div>
+            </div>
+            <input name= "PlantName" #PlantName="ngModel" [(ngModel)]="service.formData.PlantName" class="form-control" 
+            placeholder="Plant name" minlength="3" required (change)="slova()">
+        </div>
+    </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class = "input-group-text bg-white">
+                    <i class="fas fa-snowflake" [class.green-icon]="Mintemp.valid" 
+                    [class.red-icon]="Mintemp.invalid && Mintemp.touched"></i>
+                </div>
+            </div>
+            <input type="number" name= "Mintemp" #Mintemp="ngModel" [(ngModel)]="service.formData.Mintemp" class="form-control" 
+            placeholder="Minimum temp" required (change)="biggerTemp()">
+
+            <div *ngIf="Mintemp.valid">
+                °C
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group col-md-6">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class = "input-group-text bg-white">
+                    <i class="fab fa-hotjar" [class.green-icon]="Maxtemp.valid" 
+                    [class.red-icon]="Maxtemp.invalid && Maxtemp.touched"></i>
+                </div>
+            </div>
+            <input type="number" name= "Maxtemp" #Maxtemp="ngModel" [(ngModel)]="service.formData.Maxtemp" class="form-control"
+             placeholder="Maximum temp" required (change)="biggerTemp()">
+
+             <div *ngIf="Maxtemp.valid">
+                °C
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class = "input-group-text bg-white">
+                    <i class="fas fa-sun" [class.green-icon]="Minwater.valid" [class.red-icon]="Minwater.invalid && Minwater.touched"></i>
+                </div>
+            </div>
+            <input type="number" name= "Minwater" #Minwater="ngModel" [(ngModel)]="service.formData.Minwater" class="form-control"
+             placeholder="Minimum water plant endures" required (change)="biggerWater()">
+
+             <div *ngIf="Minwater.valid">
+                L/week
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class = "input-group-text bg-white">
+                    <i class="fas fa-cloud-showers-heavy" [class.green-icon]="Maxwater.valid" 
+                    [class.red-icon]="Maxwater.invalid && Maxwater.touched"></i>
+                </div>
+            </div>
+            <input type="number" name= "Maxwater" #Maxwater="ngModel" [(ngModel)]="service.formData.Maxwater" class="form-control" 
+            placeholder="Maximum water plant endures" required (change)="biggerWater()">
+
+            <div *ngIf="Maxwater.valid">
+                L/week
+            </div>
+        </div>
+    </div>
+    
+    <div class ="form-group">
+        <button class="btn btn-success btn-lg btn-block" type = "submit" [disabled]="form.invalid">
+            <i class="fas fa-file-upload">
+        </i> Submit </button>
+    </div>
+
+</form>
+
